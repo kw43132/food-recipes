@@ -35,16 +35,12 @@ function displayRecipes(recipes) {
         const card = document.createElement('div');
         card.className = "recipe-card";
 
-       
-
-
-
         card.innerHTML = `
-          
+            <div class="card-body">
                 <span class="badge">${item.category}</span>
                 <h3>${item.recipeName}</h3>
-                <p><strong>🛒 วัตถุดิบ:</strong><br>${item.ingredients}</p>
-                <p><strong>🍳 วิธีทำ:</strong><br>${item.instructions}</p>
+                <p><strong>วัตถุดิบ:</strong><br>${item.ingredients}</p>
+                <p><strong>วิธีทำ:</strong><br>${item.instructions}</p>
             </div>
         `;
         listDiv.appendChild(card);
