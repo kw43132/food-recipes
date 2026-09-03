@@ -35,13 +35,12 @@ function displayRecipes(recipes) {
         const card = document.createElement('div');
         card.className = "recipe-card";
 
-        // รูปภาพตั้งต้นถ้าผู้ใช้ไม่ได้ใส่ลิงก์
-        const defaultImg = "https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=500&q=80";
-        const imgUrl = item.imageUrl && item.imageUrl.trim() !== "" ? item.imageUrl : defaultImg;
+       
+
+
 
         card.innerHTML = `
-            <img src="${imgUrl}" alt="${item.recipeName}" class="recipe-img" onerror="this.src='${defaultImg}'">
-            <div class="card-body">
+          
                 <span class="badge">${item.category}</span>
                 <h3>${item.recipeName}</h3>
                 <p><strong>🛒 วัตถุดิบ:</strong><br>${item.ingredients}</p>
@@ -64,7 +63,7 @@ document.getElementById('recipeForm').addEventListener('submit', async (e) => {
         recipeName: document.getElementById('recipeName').value,
         category: document.getElementById('category').value,
         imageUrl: document.getElementById('imageUrl').value,
-        ingredients: document.getElementById('ingredients').value,
+    
         instructions: document.getElementById('instructions').value
     };
 
