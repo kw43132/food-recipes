@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คลังสูตรอาหารประจำบ้าน (Recipe Vault)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>🍳 คลังสูตรอาหารประจำบ้าน</h1>
+            <p>ค้นหาสูตรอาหาร และเพิ่มเมนูโปรดไว้กันลืม</p>
+        </header>
+
+        <!-- ส่วนฟอร์มเพิ่มสูตรอาหาร (Create) -->
+        <section class="card-form">
+            <h2>➕ เพิ่มสูตรอาหารใหม่ (Create)</h2>
+            <form id="recipeForm">
+                <div class="form-group">
+                    <label>ชื่อเมนู *</label>
+                    <input type="text" id="recipeName" required placeholder="เช่น ผัดกะเพราหมูสับ">
+                </div>
+
+                <div class="form-group">
+                    <label>หมวดหมู่</label>
+                    <select id="category">
+                        <option value="ผัด">ผัด</option>
+                        <option value="ต้ม/แกง">ต้ม/แกง</option>
+                        <option value="ทอด">ทอด</option>
+                        <option value="ยำ/ส้มตำ">ยำ/ส้มตำ</option>
+                        <option value="ของหวาน">ของหวาน</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ลิงก์รูปภาพ (URL)</label>
+                    <input type="url" id="imageUrl" placeholder="วางลิงก์รูปภาพ เช่น https://images.unsplash.com/...">
+                </div>
+
+                <div class="form-group">
+                    <label>วัตถุดิบ *</label>
+                    <textarea id="ingredients" rows="3" required placeholder="เช่น หมูสับ 200g, ใบกะเพรา 1 กำ, พริก, กระเทียม, น้ำปลา"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>วิธีทำ *</label>
+                    <textarea id="instructions" rows="3" required placeholder="เช่น 1. โขลกพริกกระเทียม 2. ผัดหมูให้สุก 3. ใส่ใบกะเพรา"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">บันทึกสูตรอาหาร</button>
+            </form>
+        </section>
+
+        <!-- ส่วนค้นหาและแสดงรายการ (Read) -->
+        <section class="card-form">
+            <h2>🔍 ค้นหาสูตรอาหาร (Read)</h2>
+            <div class="form-group">
+                <input type="text" id="searchInput" placeholder="พิมพ์ชื่อเมนูเพื่อค้นหา เช่น กะเพรา...">
+            </div>
+
+            <div id="loading" class="loading-text">กำลังโหลดข้อมูลสูตรอาหาร...</div>
+            <div id="recipeList" class="recipe-grid"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
