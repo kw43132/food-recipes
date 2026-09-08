@@ -1,5 +1,5 @@
 // 1. วาง Web App URL จาก Google Apps Script ตรงนี้
-const API_URL = "https://script.google.com/macros/s/AKfycbxrjXt93XnCTV7YoXDJQWpo9YgBkgzTE4ZB2h96teshgSyj_VgCgv3V4jf2gREsXcyeLg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwj89jEHx-WbbDYbUdWBJfNsJ78i8iXiB5zRhtZMz2oq2kJ4_w35kQwc9VGFg55DkkmMA/exec";
 
 let allRecipes = [];
 
