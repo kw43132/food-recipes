@@ -1,5 +1,5 @@
-// ⚠️ วาง Web App URL จาก Google Apps Script ตรงนี้
-const API_URL = "https://script.google.com/macros/s/AKfycbxrjXt93XnCTV7YoXDJQWpo9YgBkgzTE4Z8eW96teshgSyj_VgCgv3V4jf2gREsXcyelg/exec";
+// 1. วาง Web App URL จาก Google Apps Script ตรงนี้
+const API_URL = "https://script.google.com/macros/s/AKfycbxrjXt93XnCTV7YoXDJQWpo9YgBkgzTE4ZB2h96teshgSyj_VgCgv3V4jf2gREsXcyeLg/exec";
 
 let allRecipes = [];
 
@@ -11,11 +11,11 @@ async function fetchRecipes() {
     try {
         const response = await fetch(API_URL);
         allRecipes = await response.json();
-        
-        loadingDiv.style.display = 'none';
+
+        if (loadingDiv) loadingDiv.style.display = 'none';
         displayRecipes(allRecipes);
     } catch (error) {
-        loadingDiv.innerText = "เกิดข้อผิดพลาดในการโหลดข้อมูล";
+        if (loadingDiv) loadingDiv.innerText = "เกิดข้อผิดพลาดในการโหลดข้อมูล";
         console.error(error);
     }
 }
@@ -37,7 +37,7 @@ function displayRecipes(recipes) {
 
         card.innerHTML = `
             <div class="card-body">
-                <span class="badge">${item.category}</span>
+                <span class="badge">${item.category || 'ทั่วไป'}</span>
                 <h3>${item.recipeName}</h3>
                 <p><strong>วัตถุดิบ:</strong><br>${item.ingredients}</p>
                 <p><strong>วิธีทำ:</strong><br>${item.instructions}</p>
@@ -58,8 +58,7 @@ document.getElementById('recipeForm').addEventListener('submit', async (e) => {
     const formData = {
         recipeName: document.getElementById('recipeName').value,
         category: document.getElementById('category').value,
-        imageUrl: document.getElementById('imageUrl').value,
-    
+        ingredients: document.getElementById('ingredients').value,
         instructions: document.getElementById('instructions').value
     };
 
